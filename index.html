@@ -1,0 +1,299 @@
+<html manifest="cache.manifest">
+<!--  -->
+
+<head>
+    <title>6.72 Lite </title>
+    <style>
+        button {
+            background: rgba(0, 0, 0, 0.842);
+            box-shadow: 0 5px 20px 0 white;
+            border: 2px solid black;
+            border-top-right-radius: 10px;
+            border-bottom-left-radius: 10px;
+            color: white;
+            text-decoration: none;
+            width: 300px;
+            height: 40px;
+            display: inline-table;
+            text-align: center;
+            transition: 0.20s;
+            font-size: 22px;
+            box-sizing: border-box;
+        }
+        
+        #kwanza {
+            width: 400px;
+            height: 50px;
+        }
+        
+        * {
+            font-family: monospace;
+        }
+        
+        button:focus,
+        button:hover {
+            color: White;
+            /* box-shadow: 0 5px 50px 0 white; */
+            background-color: black;
+            border-radius: 10px;
+            transform: translateY(-10px);
+            cursor: pointer;
+        }
+    </style>
+    <script>
+        function DLProgress(e) {
+            Percent = (Math.round(e.loaded / e.total * 100));
+            window.msgs.innerHTML = "Installing Offline Cache: " + Percent + "%";
+        }
+
+        function DisplayCacheProgress() {
+            setTimeout(function() {
+                window.msgs.innerHTML = "Cache Installed Successfully";
+            }, 1000);
+            setTimeout(function() {
+                window.msgs.innerHTML = "Now Close And Re-Open Your Browser";
+            }, 3000);
+        }
+        window.applicationCache.addEventListener("progress", DLProgress, false);
+        window.applicationCache.oncached = function(e) {
+            DisplayCacheProgress();
+        };
+        window.applicationCache.onupdateready = function(e) {
+            DisplayCacheProgress();
+        };
+    </script>
+    <script src="exp_webkit.js"></script>
+</head>
+
+<body style="background-image: url(img.jpg); background-size: cover;background-repeat: no-repeat; color:white;">
+    <!-- <h1 style='font-size:35px;text-align:center; letter-spacing: 10px; color: rgb(212, 206, 206);'>K3RNEL_P4N1C_</h1> -->
+    <hr>
+    <h1 id=msgs style='font-size:25px;text-align:center; letter-spacing: 5px; color: rgb(212, 206, 206);'>STATUS</h1>
+    <hr>
+    <h1 style='font-size:25px;text-align:center;'>LOAD JAILBREAK</h1>
+    <div style="text-align:center">
+        <button id="kwanza" onclick="load_exploit_HEN(); return false">Exploit + GoldHen V1.1 </button>
+        <br>
+        <!-- <div text-align=center>Pass = <span id=passCounter></span>&nbsp;&nbsp;:&nbsp;&nbsp;Fail = <span id=failCounter></span></div> -->
+        <h1 style='font-size:25px;text-align:center;'>PAYLOADS</h1>
+        <!-- <button onclick="load_binloader(); return false"> Bin Loader </button>
+        <br><br> -->
+        <button onclick="load_binloader(); return false">Binloader</button>
+        <button onclick="load_saveb(); return false">SaveDataBackup</button>
+        <button onclick="load_saver(); return false">SaveDataRestore</button>
+        <button onclick="load_trophyb(); return false">TrophyBackup</button>
+        <button onclick="load_trophyr(); return false">TrophyRestore</button>
+        <br><br>
+        <button onclick="load_webrte(); return false"> WebRTE </button>
+        <br><br>
+        <button onclick="load_dbBackup(); return false"> DB Backup </button>
+        <button onclick="load_dbRestore(); return false"> DB Restore </button>
+        <br><br>
+        <button onclick="load_avatarb(); return false">AvatarBackup</button>
+        <button onclick="load_avatarr(); return false">AvatarRestore</button>
+        <button onclick="load_updatesdisable(); return false"> Disable Updates </button>
+        <button onclick="load_updatesenable(); return false"> Enable Updates </button>
+        <button onclick="load_todex(); return false"> ToDEX </button>
+        <br><br>
+        <button onclick="load_RDR2(); return false">RDR2 1.24</button>
+        <button onclick="load_fanthresh(); return false"> Set Fan Threshold </button><select id="tempC"></select>&#176;C<br>
+        <h2 style="font-size: 25px;">The PS4's default temp is 79&#176;C</h2>
+        <script>
+            for (var i = 40; i <= 79; i++) {
+                var select = document.getElementById("tempC");
+                var option = document.createElement("OPTION");
+                select.options.add(option);
+                option.text = i;
+                option.value = i;
+            }
+            tempC.value = 60;
+        </script>
+        <br>
+    </div>
+    <script>
+        function load_exploit_HEN() {
+            msgs.innerHTML = "<h1 style='font-size:25px;text-align:center;'>Loading Exploit And GoldHen V.1.1...</h1>";
+            LoadedMSG = "<h1 style='font-size:25px;text-align:center; margin-top:-3px;'>Exploit And GoldHen V.1.1 Loaded ✔ - Press Circle To Exit</h1>";
+
+            function getScript(source, callback) {
+                var gs = document.createElement('script');
+                gs.src = source;
+                gs.onload = callback;
+                gs.async = false;
+                document.body.appendChild(gs);
+            }
+
+            function loadScript() {
+                getScript("exp_kernelHEN.js", function() {
+                    setTimeout(jailbreak, 500);
+                });
+            }
+            loadScript();
+        }
+
+        function load_binloader() {
+            msgs.innerHTML = "<h1 style='font-size:25px;text-align:center;'>Loading Bin Loader ...</h1>";
+            LoadedMSG = "Send Payload To Port 9021";
+            var script = document.createElement('script');
+            script.src = "exp_BinLoader.js";
+            document.getElementsByTagName('head')[0].appendChild(script);
+        }
+
+        function load_saveb() {
+            msgs.innerHTML = "<h1 style='font-size:25px;text-align:center;'>Loading save data backup ...</h1>";
+            LoadedMSG = "<h1 style='font-size:25px;text-align:center; margin-top:-3px;'>save data backup Loaded ✔</h1>";
+            var script = document.createElement('script');
+            script.src = "savedatabackup.js";
+            document.getElementsByTagName('head')[0].appendChild(script);
+            var script = document.createElement('script');
+            script.src = "exp_loader.js";
+            document.getElementsByTagName('head')[0].appendChild(script);
+        }
+
+        function load_saver() {
+            msgs.innerHTML = "<h1 style='font-size:25px;text-align:center;'>Loading save data restore ...</h1>";
+            LoadedMSG = "<h1 style='font-size:25px;text-align:center; margin-top:-3px;'>Save data restore Loaded ✔</h1>";
+            var script = document.createElement('script');
+            script.src = "savedatarestore.js";
+            document.getElementsByTagName('head')[0].appendChild(script);
+            var script = document.createElement('script');
+            script.src = "exp_loader.js";
+            document.getElementsByTagName('head')[0].appendChild(script);
+        }
+
+        function load_avatarb() {
+            msgs.innerHTML = "<h1 style='font-size:25px;text-align:center;'>Loading Avatar backup ...</h1>";
+            LoadedMSG = "<h1 style='font-size:25px;text-align:center; margin-top:-3px;'>Avatar backup Loaded ✔</h1>";
+            var script = document.createElement('script');
+            script.src = "avatarbackup.js";
+            document.getElementsByTagName('head')[0].appendChild(script);
+            var script = document.createElement('script');
+            script.src = "exp_loader.js";
+            document.getElementsByTagName('head')[0].appendChild(script);
+        }
+
+        function load_avatarr() {
+            msgs.innerHTML = "<h1 style='font-size:25px;text-align:center;'>Loading Avatar restore ...</h1>";
+            LoadedMSG = "<h1 style='font-size:25px;text-align:center; margin-top:-3px;'>Avatar restore Loaded ✔</h1>";
+            var script = document.createElement('script');
+            script.src = "avatarrestore.js";
+            document.getElementsByTagName('head')[0].appendChild(script);
+            var script = document.createElement('script');
+            script.src = "exp_loader.js";
+            document.getElementsByTagName('head')[0].appendChild(script);
+        }
+
+        function load_trophyb() {
+            msgs.innerHTML = "<h1 style='font-size:25px;text-align:center;'>Loading Trophy backup ...</h1>";
+            LoadedMSG = "<h1 style='font-size:25px;text-align:center; margin-top:-3px;'>Trophy backup Loaded ✔</h1>";
+            var script = document.createElement('script');
+            script.src = "trophybackup.js";
+            document.getElementsByTagName('head')[0].appendChild(script);
+            var script = document.createElement('script');
+            script.src = "exp_loader.js";
+            document.getElementsByTagName('head')[0].appendChild(script);
+        }
+
+        function load_trophyr() {
+            msgs.innerHTML = "<h1 style='font-size:25px;text-align:center;'>Loading Trophy restore ...</h1>";
+            LoadedMSG = "<h1 style='font-size:25px;text-align:center; margin-top:-3px;'>Trophy Restore Loaded ✔</h1>";
+            var script = document.createElement('script');
+            script.src = "trophyrestore.js";
+            document.getElementsByTagName('head')[0].appendChild(script);
+            var script = document.createElement('script');
+            script.src = "exp_loader.js";
+            document.getElementsByTagName('head')[0].appendChild(script);
+        }
+
+        function load_webrte() {
+            msgs.innerHTML = "<h1 style='font-size:25px;text-align:center;'>Loading WebRTE ...</h1>";
+            LoadedMSG = "<h1 style='font-size:25px;text-align:center; margin-top:-3px;'>WebRTE Loaded ✔</h1>";
+            var script = document.createElement('script');
+            script.src = "pl_WebRTE.js";
+            document.getElementsByTagName('head')[0].appendChild(script);
+            var script = document.createElement('script');
+            script.src = "exp_loader.js";
+            document.getElementsByTagName('head')[0].appendChild(script);
+        }
+
+        function load_RDR2() {
+            msgs.innerHTML = "<h1 style='font-size:25px;text-align:center;'>Loading Red DEAD Redemption 2 ...</h1>";
+            LoadedMSG = "<h1 style='font-size:25px;text-align:center; margin-top:-3px;'>RDR2 Mod Menu Loaded ✔</h1>";
+            var script = document.createElement('script');
+            script.src = "red124.js";
+            document.getElementsByTagName('head')[0].appendChild(script);
+            var script = document.createElement('script');
+            script.src = "exp_loader.js";
+            document.getElementsByTagName('head')[0].appendChild(script);
+        }
+
+        function load_todex() {
+            msgs.innerHTML = "<h1 style='font-size:25px;text-align:center;'>Loading ToDEX ...</h1>";
+            LoadedMSG = "<h1 style='font-size:25px;text-align:center; margin-top:-3px;'>ToDEX Loaded ✔</h1>";
+            var script = document.createElement('script');
+            script.src = "pl_ToDEX.js";
+            document.getElementsByTagName('head')[0].appendChild(script);
+            var script = document.createElement('script');
+            script.src = "exp_loader.js";
+            document.getElementsByTagName('head')[0].appendChild(script);
+        }
+
+        function load_updatesdisable() {
+            msgs.innerHTML = "<h1 style='font-size:25px;text-align:center;'>Loading Disable Updates ...</h1>";
+            LoadedMSG = "<h1 style='font-size:25px;text-align:center; margin-top:-3px;'>Disable Updates Loaded ✔</h1>";
+            var script = document.createElement('script');
+            script.src = "pl_updatesDisable.js";
+            document.getElementsByTagName('head')[0].appendChild(script);
+            var script = document.createElement('script');
+            script.src = "exp_loader.js";
+            document.getElementsByTagName('head')[0].appendChild(script);
+        }
+
+        function load_updatesenable() {
+            msgs.innerHTML = "<h1 style='font-size:25px;text-align:center;'>Loading Enable Updates ...</h1>";
+            LoadedMSG = "<h1 style='font-size:25px;text-align:center; margin-top:-3px;'>Enable Updates Loaded ✔</h1>";
+            var script = document.createElement('script');
+            script.src = "pl_updatesEnable.js";
+            document.getElementsByTagName('head')[0].appendChild(script);
+            var script = document.createElement('script');
+            script.src = "exp_loader.js";
+            document.getElementsByTagName('head')[0].appendChild(script);
+        }
+
+        function load_dbBackup() {
+            msgs.innerHTML = "<h1 style='font-size:25px;text-align:center;'>Loading DB Backup ...</h1>";
+            LoadedMSG = "<h1 style='font-size:25px;text-align:center; margin-top:-3px;'>DB Backup Loaded ✔</h1>";
+            var script = document.createElement('script');
+            script.src = "pl_dbBackup.js";
+            document.getElementsByTagName('head')[0].appendChild(script);
+            var script = document.createElement('script');
+            script.src = "exp_loader.js";
+            document.getElementsByTagName('head')[0].appendChild(script);
+        }
+
+        function load_dbRestore() {
+            msgs.innerHTML = "<h1 style='font-size:25px;text-align:center;'>Loading DB Restore ...</h1>";
+            LoadedMSG = "<h1 style='font-size:25px;text-align:center; margin-top:-3px;'>DB Restore Loaded ✔</h1>";
+            var script = document.createElement('script');
+            script.src = "pl_dbRestore.js";
+            document.getElementsByTagName('head')[0].appendChild(script);
+            var script = document.createElement('script');
+            script.src = "exp_loader.js";
+            document.getElementsByTagName('head')[0].appendChild(script);
+        }
+
+        function load_fanthresh() {
+            msgs.innerHTML = "<h1 style='font-size:25px;text-align:center;'>Loading Fan Threshold ...</h1>";
+            LoadedMSG = "<h1 style='font-size:25px;text-align:center; margin-top:-3px;'>Fan Threshold Loaded ✔</h1>";
+            fanTemp = tempC.value; //alert(fanTemp);
+            var script = document.createElement('script');
+            script.src = "pl_fanthresh.js";
+            document.getElementsByTagName('head')[0].appendChild(script);
+            var script = document.createElement('script');
+            script.src = "exp_loader.js";
+            document.getElementsByTagName('head')[0].appendChild(script);
+        }
+    </script>
+</body>
+
+</html>
